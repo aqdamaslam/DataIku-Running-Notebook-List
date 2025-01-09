@@ -18,30 +18,67 @@
 Dataiku DSS must have API access enabled.
 You need appropriate permissions to access the project and notebooks in Dataiku.
 
-### Automating the process of listing Jupyter notebooks in Dataiku that are running but haven't been modified in the last 7 days provides several benefits:
 
-#### 1. Time Savings
-###### -- Manual Work Reduction: It eliminates the need to manually check each notebook's status and modification date, saving significant time, especially in large projects with many notebooks.
+### Use Case: **Automated Management of Idle Jupyter Notebooks in Dataiku**
 
-#### 2. Resource Optimization
-###### -- Efficient Resource Use: Identifying and stopping idle notebooks prevents unnecessary resource consumption, ensuring that system resources (CPU, memory) are used efficiently.
-###### -- Cost Reduction: By optimizing resource usage, you can potentially reduce costs, especially in cloud environments where resources are billed based on usage.
+#### Scenario:
+A data science team is working on multiple projects within Dataiku, and the organization has a policy to ensure that only actively used Jupyter notebooks are running. This policy helps to reduce resource consumption and avoid unnecessary costs, especially in cloud environments where compute resources are billed based on usage. 
 
-#### 3. Improved System Performance
-###### -- Performance Boost: Stopping unused running notebooks can free up system resources, enhancing the performance of the Dataiku instance for other active tasks.
+Over time, some notebooks may run continuously but not be modified or edited for extended periods. These idle notebooks take up valuable resources and increase operational costs without adding value. 
 
-#### 4. Enhanced Project Management
-###### -- Automated Monitoring: Regularly running this script can help maintain a clean and organized environment by keeping track of unused resources.
-###### -- Compliance and Governance: Ensures adherence to organizational policies regarding resource usage and project maintenance.
+The team needs an automated solution to track running notebooks and identify those that have not been modified for the last 7 days, so they can take appropriate actions (like stopping or archiving them) to optimize resource usage.
 
-#### 5. Reduced Error Potential
+---
 
-###### -- Consistent Results: Automation reduces the likelihood of human error in tracking notebook statuses, leading to more reliable outcomes.
+### **Solution: Automation Python Script**
 
-#### -- 6. Customization and Scalability
-###### -- Adaptability: The script can be customized to include additional criteria or to handle other tasks related to notebook management.
-###### -- Scalable Solution: The script can easily scale with the number of projects and notebooks, making it suitable for large environments.
+The Python script described earlier connects to the Dataiku DSS API, retrieves a list of running notebooks, and compares their last modification dates against a 7-day threshold. The notebooks that are still running but haven’t been modified in the past 7 days are flagged, and the team can be notified or take further actions like stopping or archiving these notebooks.
 
-#### 7. Proactive Maintenance
-###### -- Preventive Action: It allows teams to proactively manage running notebooks, reducing the risk of overloading the system or facing unexpected resource shortages.
-###### -- Implementing such a script is an excellent way to enhance operational efficiency and maintain a robust data science environment.
+---
+
+### **Benefits of the Automation Python Script**
+
+1. **Efficiency in Resource Management**
+   - The script automatically identifies idle running notebooks, reducing manual monitoring efforts. This helps ensure that only necessary notebooks consume resources, optimizing the overall system performance.
+   
+   **Benefit**: Reduces waste of computational resources (CPU, memory) and network bandwidth.
+
+2. **Cost Reduction**
+   - In cloud-based environments, running notebooks incur costs based on resource usage. By identifying notebooks that have been idle for over 7 days, the team can take action (e.g., stop them) to prevent unnecessary charges.
+   
+   **Benefit**: Helps in significantly lowering cloud infrastructure costs.
+
+3. **Proactive System Maintenance**
+   - The script can be scheduled to run periodically (e.g., daily or weekly) to proactively manage running notebooks, ensuring that the system remains optimized without requiring manual intervention.
+   
+   **Benefit**: Ensures continuous system performance and prevents resource overuse due to unused notebooks.
+
+4. **Faster Decision-Making**
+   - By having an automated tool that continuously monitors notebook activity, the data science team can quickly make decisions regarding resource allocation and prioritization without waiting for manual checks.
+   
+   **Benefit**: Speed up operational decision-making, making the team more agile.
+
+5. **Improved Governance and Compliance**
+   - The script ensures that the organization’s policy regarding resource usage is consistently followed. If notebooks have not been edited in the last 7 days but are still running, it is a clear violation of the best practices, which can be flagged for further review.
+   
+   **Benefit**: Enhances governance by ensuring compliance with internal resource usage policies.
+
+6. **Risk Mitigation**
+   - Continuous monitoring of notebook activity reduces the risk of running into system performance bottlenecks or unexpected costs due to overlooked idle notebooks.
+   
+   **Benefit**: Mitigates the risk of system failures and sudden spikes in operational costs.
+
+7. **Customization for Other Monitoring Tasks**
+   - This script can easily be customized for other use cases. For example, it can be modified to track notebooks that haven't been executed for a certain period, or check for notebooks that are taking up too many resources (e.g., memory usage).
+   
+   **Benefit**: Offers flexibility to adapt the script for other monitoring needs as the project evolves.
+
+8. **Reduced Human Error**
+   - By automating the monitoring and identification process, the chance of human error is minimized, ensuring a more reliable and consistent management process.
+   
+   **Benefit**: Increases the reliability and consistency of the resource management process.
+
+---
+
+### **Conclusion:**
+This Python automation script is a simple yet powerful solution for managing idle Jupyter notebooks in Dataiku, ensuring that resources are efficiently used, costs are kept in check, and the overall system is running at optimal performance. It not only reduces manual efforts but also provides proactive monitoring, allowing the team to focus on core tasks without worrying about resource wastage or system performance degradation.
