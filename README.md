@@ -76,7 +76,7 @@ The Python script described earlier connects to the Dataiku DSS API, retrieves a
 8. **Reduced Human Error**
    - By automating the monitoring and identification process, the chance of human error is minimized, ensuring a more reliable and consistent management process.
    
-   **Benefit**: Increases the reliability and consistency of the resource management process.
+   **Benefit**: Increases the reliability and consistency of the resource management process. 
 
 ---
 
