@@ -20,7 +20,7 @@ You need appropriate permissions to access the project and notebooks in Dataiku.
 
 
 ### Use Case: **Automated Management of Idle Jupyter Notebooks in Dataiku**
-
+ 
 #### Scenario:
 A data science team is working on multiple projects within Dataiku, and the organization has a policy to ensure that only actively used Jupyter notebooks are running. This policy helps to reduce resource consumption and avoid unnecessary costs, especially in cloud environments where compute resources are billed based on usage. 
 
